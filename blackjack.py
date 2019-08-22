@@ -2,7 +2,7 @@
 FUCNTIONALITY
 
 Players play hands
-	test insert
+	
 Types of Play:
 	Automatic
 	Manual
