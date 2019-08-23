@@ -53,3 +53,22 @@ def select_random_cards(deck, amount):
 			del deck[choice]
 		cards.append(choice)
 	return cards
+
+def splittable(card1,  card2):
+	if DECK[card1] == DECK[card2]:
+		# compare the first letter of the card name
+		if card1[0] == card2[0]:
+			return True
+	return False
+
+def same_deck(size):
+	''' Test deck splitting '''
+	new_deck = {}
+	for i in range(size):
+		for j in range(52):
+			card = "Ace of Spades"
+			if card in new_deck.keys():
+				new_deck[card] += 1
+			else:
+				new_deck[card] = 1
+	return new_deck

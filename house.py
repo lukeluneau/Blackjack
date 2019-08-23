@@ -21,10 +21,10 @@ class House():
 		self.players = []
 		self.winnings = 0
 		self.deck = None
-		self.get_deck()
+		self.get_new_deck()
 
 	
-	def get_deck(self):
+	def get_new_deck(self):
 		self.deck = deck.new_deck(self.deck_size)
 
 	def add_player(self, player):
@@ -44,6 +44,9 @@ class House():
 			else:
 				print('Let\'s play...')
 			print()
+
+		if len(self.deck) < 10:
+			self.get_new_deck()
 
 		# Show a dealer card
 		dealer_hand = deck.select_random_cards(self.deck, 2)
@@ -69,7 +72,7 @@ class House():
 		current_hand = player.get_hand()
 		c1, c2 = current_hand[0], current_hand[1]
 		# sp = False
-		if DECK[c1] == DECK[c2]:
+		if deck.splittable(c1, c2):
 			split_hands = input('Do you want to split hands?')
 			if split_hands in YES:
 				player.split_hand()
